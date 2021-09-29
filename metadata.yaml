@@ -13,9 +13,9 @@
 # limitations under the License.
 
 homepage: "https://www.tagmanageritalia.com/"
-documentation: "https://github.com/matteo-zambon-gtm/GA4-Items-to-Facebook-Object-Converter/blob/main/README.md"
+documentation: "https://github.com/matteo-zambon-gtm/GA4-Items-to-GAds-Remarketing-Converter/blob/main/README.md"
 
 versions:
   # Latest Version
-  - sha: bdf3a769c4ce74ff33dc0acf2799737d4801ccd0
+  - sha: 72c7e485cd43e20f58aa1e89d812c28662282154
     changeNotes: Initial release
