@@ -13,7 +13,7 @@ ___INFO___
   "id": "cvt_temp_public_id",
   "version": 1,
   "securityGroups": [],
-  "displayName": "GA4 Items to GAds Remarketing Converter",
+  "displayName": "GA4 Items to GAds Dynamic Remarketing Converter",
   "description": "This variable template easily converts GA4 Items structure to the new GAds Remarketing event data and the old (ecomm_xxx).",
   "containerContexts": [
     "WEB"
