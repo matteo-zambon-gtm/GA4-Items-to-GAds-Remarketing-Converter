@@ -14,7 +14,7 @@ ___INFO___
   "version": 1,
   "securityGroups": [],
   "displayName": "GA4 Items to GAds Dynamic Remarketing Converter",
-  "description": "This variable template easily converts GA4 Items structure to GAds Remarketing event data.",
+  "description": "This variable template easily converts GA4 Items structure to the new GAds Remarketing event data and the old GAds Remarketing parameters (ecomm_xxx)",
   "containerContexts": [
     "WEB"
   ]
