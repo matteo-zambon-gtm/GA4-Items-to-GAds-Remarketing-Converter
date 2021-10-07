@@ -21,5 +21,7 @@ versions:
     changeNotes: Change description and update some fix
   
   # Old Version
+  - sha: 3d5de3b2902fffa2c0265ce613b0d003029a2af0
+    changeNotes: Change description and update some fix
   - sha: 72c7e485cd43e20f58aa1e89d812c28662282154
     changeNotes: Initial release
