@@ -28,7 +28,6 @@ ___TEMPLATE_PARAMETERS___
     "type": "SELECT",
     "name": "remarketingType",
     "displayName": "Type",
-    "macrosInSelect": true,
     "selectItems": [
       {
         "value": "event_data",
@@ -40,7 +39,8 @@ ___TEMPLATE_PARAMETERS___
       }
     ],
     "simpleValueType": true,
-    "defaultValue": "event_data"
+    "defaultValue": "event_data",
+    "help": "You can choose the new dynamic remarketing with Event Data or the old dynamic remarketing with custom parameters"
   },
   {
     "type": "GROUP",
@@ -52,7 +52,6 @@ ___TEMPLATE_PARAMETERS___
         "type": "SELECT",
         "name": "event_type",
         "displayName": "Event Type",
-        "macrosInSelect": true,
         "selectItems": [
           {
             "value": "event_value",
@@ -63,7 +62,8 @@ ___TEMPLATE_PARAMETERS___
             "displayValue": "Event Items"
           }
         ],
-        "simpleValueType": true
+        "simpleValueType": true,
+        "help": "This is the total value of the products or services of GA4 items"
       },
       {
         "type": "SELECT",
