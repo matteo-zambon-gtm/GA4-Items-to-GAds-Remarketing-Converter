@@ -13,7 +13,7 @@ Go to the GTM gallery variable and search "GA4 Items to GAds Dynamic Remarketing
 
 ## The configuration: 
 Create a new variable an choose GA4 Items to GAds Dynamic Remarketing Converter
-![select GA4 Items to Facebook Object Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/06/select-GA4-Items-to-Facebook-Object-Converter.png)
+![GA4 items to GAds Dynamic Remarketing Converter - Community Template](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/GA4-items-to-GAds-Dynamic-Remarketing-Converter-Community-Template.png)
 
 You can choose:
 - Type: Event Data 
