@@ -16,11 +16,13 @@ homepage: "https://www.tagmanageritalia.com/"
 documentation: "https://github.com/matteo-zambon-gtm/GA4-Items-to-GAds-Remarketing-Converter/blob/main/README.md"
 
 versions:
-  # Latest Version
-  - sha: 3d5de3b2902fffa2c0265ce613b0d003029a2af0
-    changeNotes: Change description and update some fix
+  # Latest Version  
+  - sha: 6df7b6fe3efbbb1e2a330c4d6a877b64e029921f
+    changeNotes: Change help description
   
   # Old Version
+  - sha: 3d5de3b2902fffa2c0265ce613b0d003029a2af0
+    changeNotes: Change description and update some fix
   - sha: baf45349996b2bdf5a24ce837720f665b26ce250
     changeNotes: Change description and update some fix
   - sha: 72c7e485cd43e20f58aa1e89d812c28662282154

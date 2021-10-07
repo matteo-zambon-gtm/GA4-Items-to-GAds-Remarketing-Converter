@@ -25,17 +25,19 @@ or
 
 You can choose one of the 2 types of GAds dynamic remarketing:
 
-- First: **Event Data** (the new GAds dynamic remarketing). This option is suggested :)
 
-![Event type GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/Event-type-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
-
-- Second: **Custom parameters** (the old ecomm_pagetype, ecomm_prodid, ecomm_totalvalue, ecomm_category). This is the old option, I suggest you to use the new one :)
+- First: **Custom parameters** (the old ecomm_pagetype, ecomm_prodid, ecomm_totalvalue, ecomm_category). This is the old option, I suggest you to use the new one :)
 
 ![Custom parameters GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/Custom-parameters-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
 
+- Second : **Event Data** (the new GAds dynamic remarketing). This option is suggested :)
+
+![Event type GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/Event-type-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
+
+
 Ok, let's see together how to set up the old way of dynamic remarketing with custom parameters
 
-# Custom parameters the type of Dynamic Remarketing (not suggested)
+# First: Custom parameters the type of Dynamic Remarketing (not suggested)
 
 If you want to use the old version, you have to simply create the custom variable with this option.
 
@@ -64,13 +66,19 @@ Now debug with one of GA4 events and check the variable and GAds tag
 
 ![debug custom events google ads dynamic remarketing in GA4](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/debug-Custom-parameters-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
 
-
-- Type: Event Data 
-- Type: Custom Parameters
+# Second: Event Data the new GAds dynamic remarketing (suggested)
 
 If you choose Event Data you have to create 2 variables:
 - Event Value
 - Event Items
+
+## Create Event Items variable
+
+The Event Items will set up the total value of the GA4 items (in other words the sum of the all values * qta) and the google_business_vertical (the default is retail).
+
+Set the name of variable (es: "GAds Dynamic Remarketing - Event Items")
+
+![Event type - event items retail GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/Event-type-event-items-retail-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
 
 # Update your Google Ads Remarketing Tag:
 ## Open your Google Ads Remarketing Tag
