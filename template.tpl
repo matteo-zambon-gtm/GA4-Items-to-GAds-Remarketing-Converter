@@ -63,7 +63,7 @@ ___TEMPLATE_PARAMETERS___
           }
         ],
         "simpleValueType": true,
-        "help": "This is the total value of the products or services of GA4 items"
+        "help": "The Event Value is the total value of the products or services of GA4 items."
       },
       {
         "type": "SELECT",
