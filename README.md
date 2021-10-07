@@ -3,15 +3,16 @@
 
 Well, this variable is a smart way to track the Google Ads Dynamic Remarketing using the GA4 items.
 
+So you must to have the dataLayer.push of GA4 structure to use this variable.
+
 
 **Guide step by step:**
 
-## Import the custom variable from the gallery
+## Import the template variable from the gallery
 
 Go to the GTM gallery variable and search "GA4 Items to GAds Dynamic Remarketing Converter"
 
-
-## The configuration: import the template variable
+or 
 
 1) Go to User-Defined Variables 
 2) Click Discover more variable type in the Community Template Gallery 
@@ -20,19 +21,21 @@ Go to the GTM gallery variable and search "GA4 Items to GAds Dynamic Remarketing
 
 ![GA4 items to GAds Dynamic Remarketing Converter - Community Template](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/GA4-items-to-GAds-Dynamic-Remarketing-Converter-Community-Template.png)
 
-## Choose the type of Dynamic Remarketing 
+## Choose one of the 2 types of Dynamic Remarketing 
 
-You can choose the type of GAds dynamic remarketing:
+You can choose one of the 2 types of GAds dynamic remarketing:
 
-- **Event Data** (the new GAds dynamic remarketing). This option is suggested :)
+- First: **Event Data** (the new GAds dynamic remarketing). This option is suggested :)
 
 ![Event type GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/Event-type-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
 
-- **Custom parameters** (the old ecomm_pagetype, ecomm_prodid, ecomm_totalvalue)
+- Second: **Custom parameters** (the old ecomm_pagetype, ecomm_prodid, ecomm_totalvalue, ecomm_category). This is the old option, I suggest you to use the new one :)
 
 ![Custom parameters GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/Custom-parameters-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
 
-## Custom parameters the type of Dynamic Remarketing 
+Ok, let's see together how to set up the old way of dynamic remarketing with custom parameters
+
+# Custom parameters the type of Dynamic Remarketing (not suggested)
 
 If you want to use the old version, you have to simply create the custom variable with this option.
 
@@ -41,6 +44,25 @@ Then you create the GAds Tag Remarketing:
 2) Choose the name of the variable (in my case GAds Dynamic Remarketing - Custom Parameters)
 
 ![GAds Tag - Custom parameters GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/GAds-Tag-Custom-parameters-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
+
+3) Create the trigger for your remarketing. You can catch these GA4 events:
+- view_item_list
+- select_item
+- view_item
+- add_to_cart
+- purchase
+
+So you can use a Custom Event with regex matching
+
+**view_item_list$|select_item$|view_item$|add_to_cart$|purchase$**
+
+![trigger custom events google ads dynamic remarketing in GA4](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/trigger-custom-events-google-ads-dynamic-remarketing-in-GA4.png)
+
+## Debug
+
+Now debug with one of GA4 events and check the variable and GAds tag
+
+![debug custom events google ads dynamic remarketing in GA4](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/debug-Custom-parameters-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
 
 
 - Type: Event Data 
