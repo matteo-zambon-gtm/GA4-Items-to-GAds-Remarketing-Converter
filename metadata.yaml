@@ -17,5 +17,9 @@ documentation: "https://github.com/matteo-zambon-gtm/GA4-Items-to-GAds-Remarketi
 
 versions:
   # Latest Version
+  - sha: baf45349996b2bdf5a24ce837720f665b26ce250
+    changeNotes: Change description and update some fix
+  
+  # Old Version
   - sha: 72c7e485cd43e20f58aa1e89d812c28662282154
     changeNotes: Initial release
