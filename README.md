@@ -72,33 +72,96 @@ If you choose Event Data you have to create 2 variables:
 - Event Value
 - Event Items
 
+## Create Event Value variable
+
+The Event Value will set up the total value of the GA4 items (in other words the sum of the each items value * qta).
+
+Set the name of variable (es: "GAds Dynamic Remarketing - Event Value")
+
+![Event type - event value GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/Event-type-event-value-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
+
 ## Create Event Items variable
 
-The Event Items will set up the total value of the GA4 items (in other words the sum of the all values * qta) and the google_business_vertical (the default is retail).
+The Event Items will set up the list of items id and the google_business_vertical (the default is retail)
 
 Set the name of variable (es: "GAds Dynamic Remarketing - Event Items")
 
 ![Event type - event items retail GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/Event-type-event-items-retail-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
 
-# Update your Google Ads Remarketing Tag:
-## Open your Google Ads Remarketing Tag
+## Update your Google Ads Remarketing Tag
 
-In Google Ads Remarketing Tags on the **"Event Value"** choose the variable **GA4 Items to GAds Dynamic Remarketing Converter** with Event Value selected. 
-The same thing on Event Items Parameters
+Go to GAds Remarketing Tag and check the flag "Send dynamic remarketing event data"
 
+1) **Event Name** choose the variable {{Event}}
+2) **Event Value** choose the variable {{GAds Dynamic Remarketing - Event Value}}
+3) **Event Items** choose the variable {{GAds Dynamic Remarketing - Event Items}}
 
-![use GA4 Items to Facebook Object Converter variable on your Facebook Tag](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/06/use-GA4-Items-to-Facebook-Object-Converter-variable-on-your-Facebook-Tag.png)
+![GAds Tag - Event Data GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/GAds-Tag-Event-Data-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
 
+4) Create the trigger for your remarketing. You can catch these GA4 events:
+- view_item_list
+- select_item
+- view_item
+- add_to_cart
+- purchase
+
+So you can use a Custom Event with regex matching
+
+**view_item_list$|select_item$|view_item$|add_to_cart$|purchase$**
+
+![trigger custom events google ads dynamic remarketing in GA4](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/trigger-custom-events-google-ads-dynamic-remarketing-in-GA4.png)
 
 # Now Debug it :)
 
-Ok, go to debug it :)
+Ok, go to debug it.
 
-![debug 1](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/06/debug-1.png)
+Example of the dataLayer push purchase:
 
-![debug 2](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/06/debug-2.png)
+dataLayer.push({
+    "event": "purchase",
+    "ecommerce": {
+        "currency": "EUR",
+        "items": [
+            {
+                "item_id": 122,
+                "item_name": "Beanie (Copy)",
+                "item_brand": "",
+                "price": 18,
+                "item_category": "Accessories",
+                "quantity": 2,
+            },
+            {
+                "item_id": 28,
+                "item_name": "Belt",
+                "item_brand": "",
+                "price": 55,
+                "item_category": "Accessories",
+                "quantity": 1,
+            },
+            {
+                "item_id": 29,
+                "item_name": "Cap",
+                "item_brand": "",
+                "price": 16,
+                "item_category": "Accessories",
+                "quantity": 2,
+            }
+        ],
+        "transaction_id": "183",
+        "affiliation": "",
+        "value": 123,
+        "tax": 0,
+        "shipping": 0,
+        "coupon": ""
+    }
+});
 
-Great, it works. Now you can use the same data of GA4 directly on your Facebook Tag!
+The 2 variables contain the list of id, google_business_vertical and the total value of GA4 items
+
+![debug GAds Tag - Event Data GA4 Items to GAds Dynamic Remarketing Converter](https://www.tagmanageritalia.it/GTM/guida/uploads/2021/10/debug-GAds-Tag-Event-Data-GA4-Items-to-GAds-Dynamic-Remarketing-Converter.png)
+
+
+Great, it works. Now you can use the same data of GA4 directly on your Google Ads Remarketing Tag!
 
 Let me know if it is helpful for you
 
