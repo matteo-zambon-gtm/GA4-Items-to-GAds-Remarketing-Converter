@@ -156,7 +156,7 @@ ___TEMPLATE_PARAMETERS___
         ]
       }
     ],
-    "help": "You can use \u003ca href\u003d\"https://tagmanager.google.com/gallery/#/owners/matteo-zambon-gtm/templates/GA4-Items-to-GAds-Remarketing-Converter\" target\u003d\"_blank\"\u003eEEC dataLayer Builder for GA4\u003c/a\u003e variable if you use Google Universal Analytics ecommerce object"
+    "help": "You can use \u003ca href\u003d\"https://tagmanager.google.com/gallery/#/owners/matteo-zambon-gtm/templates/EEC-dataLayer-Builder-for-GA4\" target\u003d\"_blank\"\u003eEEC dataLayer Builder for GA4\u003c/a\u003e variable if you use Google Universal Analytics ecommerce object"
   },
   {
     "type": "CHECKBOX",
@@ -182,7 +182,7 @@ ___TEMPLATE_PARAMETERS___
         ]
       }
     ],
-    "help": "You can use \u003ca href\u003d\"https://tagmanager.google.com/gallery/#/owners/matteo-zambon-gtm/templates/GA4-Items-to-GAds-Remarketing-Converter\" target\u003d\"_blank\"\u003eEEC dataLayer Builder for GA4\u003c/a\u003e variable if you use Google Universal Analytics ecommerce object"
+    "help": "You can use \u003ca href\u003d\"https://tagmanager.google.com/gallery/#/owners/matteo-zambon-gtm/templates/EEC-dataLayer-Builder-for-GA4\" target\u003d\"_blank\"\u003eEEC dataLayer Builder for GA4\u003c/a\u003e variable if you use Google Universal Analytics ecommerce object"
   }
 ]
 
