@@ -131,6 +131,58 @@ ___TEMPLATE_PARAMETERS___
         "type": "EQUALS"
       }
     ]
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "use_datalayer",
+    "checkboxText": "Use Data Layer (GA4 Items structure)",
+    "simpleValueType": true,
+    "alwaysInSummary": true,
+    "defaultValue": true,
+    "subParams": [
+      {
+        "type": "SELECT",
+        "name": "alternative_input",
+        "displayName": "Read Data from Variable",
+        "macrosInSelect": true,
+        "selectItems": [],
+        "simpleValueType": true,
+        "enablingConditions": [
+          {
+            "paramName": "use_datalayer",
+            "paramValue": true,
+            "type": "NOT_EQUALS"
+          }
+        ]
+      }
+    ],
+    "help": "You can use \u003ca href\u003d\"https://tagmanager.google.com/gallery/#/owners/matteo-zambon-gtm/templates/GA4-Items-to-GAds-Remarketing-Converter\" target\u003d\"_blank\"\u003eEEC dataLayer Builder for GA4\u003c/a\u003e variable if you use Google Universal Analytics ecommerce object"
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "use_default_events",
+    "checkboxText": "Use GA4 default events",
+    "simpleValueType": true,
+    "alwaysInSummary": true,
+    "defaultValue": true,
+    "subParams": [
+      {
+        "type": "SELECT",
+        "name": "alternative_eventName",
+        "displayName": "Read Data from Variable",
+        "macrosInSelect": true,
+        "selectItems": [],
+        "simpleValueType": true,
+        "enablingConditions": [
+          {
+            "paramName": "use_default_events",
+            "paramValue": true,
+            "type": "NOT_EQUALS"
+          }
+        ]
+      }
+    ],
+    "help": "You can use \u003ca href\u003d\"https://tagmanager.google.com/gallery/#/owners/matteo-zambon-gtm/templates/GA4-Items-to-GAds-Remarketing-Converter\" target\u003d\"_blank\"\u003eEEC dataLayer Builder for GA4\u003c/a\u003e variable if you use Google Universal Analytics ecommerce object"
   }
 ]
 
@@ -143,14 +195,27 @@ const makeInteger = require('makeInteger');
 const makeNumber = require('makeNumber');
 const ga4Events = ['view_item_list', 'select_item', 'view_item', 'remove_from_cart', 'add_to_cart', 'add_to_wishlist', 'view_promotion', 'select_promotion', 'view_cart', 'begin_checkout', 'add_shipping_info', 'add_payment_info', 'purchase', 'refund'];
 
-const event = dl('event');
-const ecommerce = dl('ecommerce', 1);
 const remarketingType = data.remarketingType;
+var ecommerce = [];
+var event = '';
+if(data.use_datalayer === false){  
+  ecommerce = data.alternative_input;
+}
+else{
+  ecommerce = dl('ecommerce', 1).items;
+}
+
+if(data.use_default_events === false){
+  event = data.alternative_eventName;
+}
+else{
+  event = dl('event');  
+}
 
 if(ga4Events.indexOf(event) >= 0){
   let gadsObj = {};    
   let totalValue;
-  let prods = ecommerce.items; 
+  let prods = ecommerce; 
   
   //Custom Parameters (old - ecomm_XXX) 
   if (remarketingType !== 'event_data'){
