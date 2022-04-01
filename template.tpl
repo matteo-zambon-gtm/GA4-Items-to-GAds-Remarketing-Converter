@@ -1,4 +1,4 @@
-﻿___TERMS_OF_SERVICE___
+___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -196,13 +196,16 @@ const makeNumber = require('makeNumber');
 const ga4Events = ['view_item_list', 'select_item', 'view_item', 'remove_from_cart', 'add_to_cart', 'add_to_wishlist', 'view_promotion', 'select_promotion', 'view_cart', 'begin_checkout', 'add_shipping_info', 'add_payment_info', 'purchase', 'refund'];
 
 const remarketingType = data.remarketingType;
+var ecommerce_items = [];
 var ecommerce = [];
 var event = '';
 if(data.use_datalayer === false){  
+  ecommerce_items = data.alternative_input;
   ecommerce = data.alternative_input;
 }
 else{
-  ecommerce = dl('ecommerce', 1).items;
+  ecommerce_items = dl('ecommerce', 1).items;
+  ecommerce = dl('ecommerce', 1);
 }
 
 if(data.use_default_events === false){
@@ -215,7 +218,7 @@ else{
 if(ga4Events.indexOf(event) >= 0){
   let gadsObj = {};    
   let totalValue;
-  let prods = ecommerce; 
+  let prods = ecommerce_items; 
   
   //Custom Parameters (old - ecomm_XXX) 
   if (remarketingType !== 'event_data'){
