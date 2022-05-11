@@ -1,4 +1,4 @@
-___TERMS_OF_SERVICE___
+﻿___TERMS_OF_SERVICE___
 
 By creating or modifying this file you agree to Google Tag Manager's Community
 Template Gallery Developer Terms of Service available at
@@ -183,6 +183,65 @@ ___TEMPLATE_PARAMETERS___
       }
     ],
     "help": "You can use \u003ca href\u003d\"https://tagmanager.google.com/gallery/#/owners/matteo-zambon-gtm/templates/EEC-dataLayer-Builder-for-GA4\" target\u003d\"_blank\"\u003eEEC dataLayer Builder for GA4\u003c/a\u003e variable if you use Google Universal Analytics ecommerce object"
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "use_default_purchase_value",
+    "checkboxText": "Use GA4 default purchase value",
+    "simpleValueType": true,
+    "alwaysInSummary": true,
+    "defaultValue": true,
+    "subParams": [
+      {
+        "type": "SELECT",
+        "name": "overwrite_purchase_value",
+        "displayName": "Read Data from Variable",
+        "macrosInSelect": true,
+        "selectItems": [],
+        "simpleValueType": true,
+        "enablingConditions": [
+          {
+            "paramName": "use_default_purchase_value",
+            "paramValue": true,
+            "type": "NOT_EQUALS"
+          }
+        ]
+      }
+    ],
+    "help": "You can overwrite purchase value (use this only if you have GA3 dataLayer structure)"
+  },
+  {
+    "type": "CHECKBOX",
+    "name": "use_default_purchase_order_id",
+    "checkboxText": "Use GA4 default purchase order id",
+    "simpleValueType": true,
+    "alwaysInSummary": true,
+    "defaultValue": true,
+    "subParams": [
+      {
+        "type": "SELECT",
+        "name": "overwrite_purchase_order_id",
+        "displayName": "Read Data from Variable",
+        "macrosInSelect": true,
+        "selectItems": [],
+        "simpleValueType": true,
+        "enablingConditions": [
+          {
+            "paramName": "use_default_purchase_order_id",
+            "paramValue": true,
+            "type": "NOT_EQUALS"
+          }
+        ]
+      }
+    ],
+    "help": "You can overwrite purchase order id(use this only if you have GA3 dataLayer structure)",
+    "enablingConditions": [
+      {
+        "paramName": "remarketingType",
+        "paramValue": "custom_parameters",
+        "type": "EQUALS"
+      }
+    ]
   }
 ]
 
@@ -250,8 +309,18 @@ if(ga4Events.indexOf(event) >= 0){
 	  
 
 	  if(event === 'purchase'){
-		totalValue = ecommerce.value;
-		gadsObj.order_id = ecommerce.transaction_id;
+        if(data.use_default_purchase_value === false){  
+		  totalValue = data.overwrite_purchase_value;
+        }
+        else{
+      		totalValue = ecommerce.value;
+        }
+        if(data.use_default_purchase_order_id === false){  
+		  gadsObj.order_id = data.overwrite_purchase_order_id;
+        }
+        else{
+          	gadsObj.order_id = ecommerce.transaction_id;
+    	  }
 	  }
 	  else{
 		totalValue = prods.reduce(function(cur, acc) {
@@ -285,7 +354,13 @@ if(ga4Events.indexOf(event) >= 0){
     ////event_value
     if (data.event_type === 'event_value'){
        if(event === 'purchase'){
-		totalValue = ecommerce.value;
+
+        if(data.use_default_purchase_value === false){  
+		  totalValue = data.overwrite_purchase_value;
+        }
+        else{
+      		totalValue = ecommerce.value;
+        }
 	  }
 	  else{
 		totalValue = prods.reduce(function(cur, acc) {
